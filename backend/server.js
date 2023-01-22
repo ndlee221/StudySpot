@@ -3,11 +3,6 @@ const {MongoClient} = require('mongodb')
 const express = require("express")
 const app = express()
 
-app.get('/cors', (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.send({ "msg": "This has CORS enabled 🎈" })
-})
-
 
 async function main(client) {
     try {
@@ -19,6 +14,8 @@ async function main(client) {
 }
 
 app.get("/building/:name", async function buildingRouter(req, res) {
+    res.set('Access-Control-Allow-Origin', '*');
+
     const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
     main(client)
     const db = client.db("studyspot");
@@ -33,6 +30,8 @@ app.get("/building/:name", async function buildingRouter(req, res) {
 })
 
 app.get("/building/:name/avail/:busy/time/:last_updated_time/day/:last_updated_day/month/:last_updated_month", async function buildingRouter(req, res) {
+    res.set('Access-Control-Allow-Origin', '*');
+    
     const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
     main(client)
     const db = client.db("studyspot");
@@ -56,6 +55,8 @@ app.get("/building/:name/avail/:busy/time/:last_updated_time/day/:last_updated_d
 
 
 app.get("/building/:name/dte/:date/msg/:message/rate/:rating", async function buildingRouter(req, res) {
+    res.set('Access-Control-Allow-Origin', '*');
+    
     const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
     main(client)
     const db = client.db("studyspot");
@@ -79,6 +80,8 @@ app.get("/building/:name/dte/:date/msg/:message/rate/:rating", async function bu
 })
 
 app.get("/avg/:name", async function buildingRouter(req, res) {
+    res.set('Access-Control-Allow-Origin', '*');
+    
     const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
     main(client)
     const db = client.db("studyspot");
