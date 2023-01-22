@@ -3,21 +3,54 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import locationData from "./Data.json";
 import SearchBar from "./SearchBar";
 import React from "react";
+import { Button } from "react-bootstrap";
+import axios from 'axios';
+import cors from 'cors';
+import { useEffect, useState } from "react";
 
+
+const URL = "studyspot.onrender.com";
 
 function Spot({ setHome }) {
+    const [building, setBuilding] = useState(false);
+    const [buildingData, setData] = useState(null);
 
-    const createCards =
+    useEffect(() => {
+        getBuildings();
+    }, []);
+
+    useEffect(() => {
+        const queryURL = URL + "/building/IKB";
+        console.log(buildingData);
+        if (buildingData) {
+            setBuilding(true);
+        }
+    }, [buildingData])
+
+    async function getBuildings() {
+        const data = await fetch("https://studyspot.onrender.com/building/IKB", { mode: 'cors' }).then((response) => {
+            return response.json();
+        })
+
+        setData(data);
+    }
+
+    const createCards = building ? buildingData.reviews.map((review) =>
         <div>
-            <div className="card1">
-                <div>
-                    Rating:
-                </div>
-                <div>
-                    I love this study spot. It's great.
-                </div>
+            <div>
+                {review.message}
+            </div>
+            <div>
+                {review.date}
+            </div>
+            <div>
+                {review.rating}
             </div>
         </div>
+    ) : null
+
+
+
 
 
 
@@ -34,18 +67,22 @@ function Spot({ setHome }) {
                 </div>
             </div>
 
+
+
             <div className="name-container ">
                 <p className="mt-5 name">
-                    Building Name
+                    {/* {building.name} */}
                 </p>
                 <a className="location ">Location</a>
                 <p>
-                    Busy Rating:
+                    Busy Rating: {buildingData ? buildingData.busy : null}
                 </p>
                 <div className="card-container">
                     {createCards}
                 </div>
             </div>
+
+
         </div>
     );
 }
