@@ -3,6 +3,12 @@ const {MongoClient} = require('mongodb')
 const express = require("express")
 const app = express()
 
+app.get('/cors', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.send({ "msg": "This has CORS enabled 🎈" })
+})
+
+
 async function main(client) {
     try {
         await client.connect()
@@ -22,24 +28,17 @@ app.get("/building/:name", async function buildingRouter(req, res) {
     console.log(params)
     const query = {name: params};
     const building = await collection.findOne(query);
-    console.log(building);
     res.json(building)
     client.close()
 })
 
-app.get("/building/:name/avail/:busy/time/:last_updated_time/day/:last_upated_day/month/:last_updated_month", async function buildingRouter(req, res) {
+app.get("/building/:name/avail/:busy/time/:last_updated_time/day/:last_updated_day/month/:last_updated_month", async function buildingRouter(req, res) {
     const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
     main(client)
     const db = client.db("studyspot");
     const collection = db.collection("building");
 
-    console.log(req.params.name)
     const filter = { name: req.params.name };
-    console.log(req.params.busy)
-    console.log(req.params.last_updated_time)
-    console.log(typeof(req.params.last_upated_day))
-    console.log(req.params.last_updated_month)
-     
     const updateDocument = {
     $set: {
         busy: parseInt(req.params.busy),
@@ -52,6 +51,49 @@ app.get("/building/:name/avail/:busy/time/:last_updated_time/day/:last_upated_da
     const result = await collection.updateOne(filter, updateDocument);
 
     res.json(result)
+    client.close()
+})
+
+
+app.get("/building/:name/dte/:date/msg/:message/rate/:rating", async function buildingRouter(req, res) {
+    const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
+    main(client)
+    const db = client.db("studyspot");
+    const collection = db.collection("building");
+
+    const filter = { name: req.params.name };
+    const updateDocument = {
+    $push: {
+        "reviews": {
+            date: req.params.date,
+            message: req.params.message.replaceAll("_", " "), 
+            rating: parseInt(req.params.rating)
+        }
+    }
+    };
+
+    const result = await collection.updateOne(filter, updateDocument);
+
+    res.json(result)
+    client.close()
+})
+
+app.get("/avg/:name", async function buildingRouter(req, res) {
+    const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
+    main(client)
+    const db = client.db("studyspot");
+    const collection = db.collection("building");
+
+    const cursor = collection.aggregate([
+        { $unwind: "$reviews" },
+        { $group : {"_id": "$_id", name: {"$first": "$name"}, avgRating : { $avg : "$reviews.rating" } } }
+    ]);
+    for await (const doc of cursor) {
+        if (doc.name == req.params.name) {
+            res.json(doc.avgRating)
+        }
+    }
+
     client.close()
 })
 
