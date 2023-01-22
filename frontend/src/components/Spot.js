@@ -5,9 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Spot({ setHome }) {
 
     const createCards =
-        <Card style={{ width: '18rem' }} className="card">
-            <Card.Text >test</Card.Text>
-        </Card>
+        <div>
+            <div className="card1">
+                <div>
+                    Rating:
+                </div>
+                <div>
+                    I love this study spot. It's great.
+                </div>
+            </div>
+        </div>
 
 
 
@@ -15,9 +22,9 @@ function Spot({ setHome }) {
         <div>
             <div className="d-flex">
                 <div className="d-flex ">
-                    <h3 className='mt-3 mx-4 title fs-1'>
+                    <a className='mt-3 mx-4 title fs-1' onClick={() => setHome(true)}>
                         StudySpots
-                    </h3>
+                    </a>
                 </div>
                 <div className="navbar-container">
                     <div className="bar mt-4">

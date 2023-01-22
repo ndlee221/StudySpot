@@ -8,9 +8,7 @@ body {
   height: 100%;
 }
 
-.card-container {
-  color: black;
-}
+
 
 .navbar-container {
   position: relative;
@@ -51,10 +49,15 @@ body {
 .location:hover {
   opacity: 50%;
   color: white;
+  cursor: pointer;
+
 }
 
 .card-container {
-  width: 50%;
+  background-color: #1a1919;
+  border-radius: 10px;
+  margin-right: 100px;
+  margin-left: 15px;
 }
 
 .about {
@@ -81,7 +84,16 @@ body {
   top: 100px;
 }
 
-.title {}
+.title {
+  color: white;
+  text-decoration: none;
+}
+
+.title:hover {
+  color: white;
+
+  cursor: pointer;
+}
 
 .name-container {
   position: relative;
@@ -94,8 +106,10 @@ body {
   font-size: 100px;
 }
 
-.card {
-  color: black;
+.card1 {
+  text-align: left;
+  padding-left: 15px;
+  padding-bottom: 10px;
 }
 
 @font-face {
