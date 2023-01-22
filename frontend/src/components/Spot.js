@@ -3,10 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import locationData from "./Data.json";
 import SearchBar from "./SearchBar";
 import React from "react";
+import PlacementExample from "./Cards";
+import BasicExample from "./Cards";
 import { Button } from "react-bootstrap";
 import axios from 'axios';
 import cors from 'cors';
 import { useEffect, useState } from "react";
+import { create } from "@mui/material/styles/createTransitions";
+import TextExample from "./Cards"
 
 
 const URL = "studyspot.onrender.com";
@@ -36,17 +40,9 @@ function Spot({ setHome }) {
     }
 
     const createCards = building ? buildingData.reviews.map((review) =>
-        <div>
-            <div>
-                {review.message}
-            </div>
-            <div>
-                {review.date}
-            </div>
-            <div>
-                {review.rating}
-            </div>
-        </div>
+        <li className="card-items">
+            <TextExample review={review}/>
+        </li>
     ) : null
 
 
@@ -70,18 +66,21 @@ function Spot({ setHome }) {
 
 
             <div className="name-container ">
-                <p className="mt-5 name">
-                    {/* {building.name} */}
-                </p>
-                <a className="location ">Location</a>
-                <p>
-                    Busy Rating: {buildingData ? buildingData.busy : null}
-                </p>
-                <div className="card-container">
-                    {createCards}
+                <h1 className="name">
+                    {buildingData ? buildingData.name : null}
+                </h1>
+                <div>
+                    Location: 
+                </div>
+                <div>
+                    Capacity:  {buildingData ? buildingData.busy : null}
+                </div>
+                <div className="cardss">
+                    <ul className="card_container">
+                        {createCards}
+                    </ul>
                 </div>
             </div>
-
 
         </div>
     );

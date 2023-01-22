@@ -1,5 +1,14 @@
 * {
-  color: white;
+ 
+}
+
+li {
+  display: inline;
+  float:left
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
@@ -65,11 +74,7 @@ body {
 }
 
 .card-container {
-  background-color: #1a1919;
-  border-radius: 10px;
-  margin-right: 100px;
-  margin-left: 15px;
-}
+display:flex;}
 
 .about {
   margin-top: 25%;
@@ -118,18 +123,3 @@ body {
   font-size: 100px;
 }
 
-.card1 {
-  text-align: left;
-  padding-left: 15px;
-  padding-bottom: 10px;
-}
-
-@font-face {
-  font-family: 'CircularMedium';
-  src: local("CircularStd-Medium"), url(../src/fonts/CircularStd-Medium.otf) format("opentype");
-}
-
-@font-face {
-  font-family: 'CircularBold';
-  src: local('CircularStd-Bold'), url(../src/fonts/CircularStd-Bold.otf) format('opentype');
-}

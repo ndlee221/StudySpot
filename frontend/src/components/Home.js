@@ -39,7 +39,6 @@ function Home({ setHome }) {
                         </p>
                     </li>
                     <li className='about-items'>
-                    <img class="picture3" src={book}></img>
                         <p>
                             Read other peoples experiences
                         </p>
