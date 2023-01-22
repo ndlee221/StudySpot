@@ -1,86 +1,59 @@
 const {MongoClient} = require('mongodb')
-// require("dotenv").config()
 
 const express = require("express")
 const app = express()
-// const mongoose = require("mongoose")
 
-// const url = "mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority"
-// const client = new MongoClient(url)
-
-async function main() {
-    // const url = "mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority"
-    //const client = new MongoClient(url)
+async function main(client) {
     try {
         await client.connect()
+        console.log("correctly connected to client")
     } catch(e) {
         console.error(e)
     }
-    // const db = client.db("studyspot");
-    // const collection = db.collection("building");
-
 }
-
-// const db = client.db("studyspot");
-// const collection = db.collection("building");
-
 
 app.get("/building/:name", async function buildingRouter(req, res) {
     const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
-    await client.connect()
+    main(client)
     const db = client.db("studyspot");
     const collection = db.collection("building");
 
     const params = req.params.name
-    // res.send(JSON.stringify(params))
+    console.log(params)
     const query = {name: params};
-    const building = collection.findOne(query);
-    res.send(building)
+    const building = await collection.findOne(query);
+    console.log(building);
+    res.json(building)
+    client.close()
 })
 
-// mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true }) // database connection
-// const db = mongoose.connection
-// db.on("error", (error) => console.log(error))
-// db.once("open", () => console.log("conneted to db"))
+app.get("/building/:name/avail/:busy/time/:last_updated_time/day/:last_upated_day/month/:last_updated_month", async function buildingRouter(req, res) {
+    const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
+    main(client)
+    const db = client.db("studyspot");
+    const collection = db.collection("building");
 
-/////
+    console.log(req.params.name)
+    const filter = { name: req.params.name };
+    console.log(req.params.busy)
+    console.log(req.params.last_updated_time)
+    console.log(typeof(req.params.last_upated_day))
+    console.log(req.params.last_updated_month)
+     
+    const updateDocument = {
+    $set: {
+        busy: parseInt(req.params.busy),
+        last_updated_time: req.params.last_updated_time,
+        last_updated_day: parseInt(req.params.last_updated_day),
+        last_updated_month: req.params.last_updated_month
+        }
+    };
 
-// app.get("/", (req, res) => {
-//     res.send("hello buildings page")    
-// })
+    const result = await collection.updateOne(filter, updateDocument);
 
-// app.post("/", (req, res) => {
-//     res.send("create new review")
-// })
-
-// app.get("/:building/", (req, res) => {
-//     const params = req.params.building
-//     // res.send(JSON.stringify(params))
-//     const query = {name: params};
-//     const building = collection.findOne(query);
-//     res.send(building)
-// })
-
-// app.route("/:spot")
-//     .get((res, req) => {
-//         const query = req.query
-//         res.json(query)
-//     })
-//     .put((res, req) => {
-//         res.send(`Update building with name ${req.params.name}`)
-//     })
-
-// const spots = [] // spots is all the spots from database
-
-// app.param("spot", (req, res, next, spot) => {
-//     req.spot = spots[spot]
-//     next()
-// })
-
-// // 
-
-// const buildingsRouter = require('./routes/buildings')
-// app.use('/buildings', buildingsRouter)
+    res.json(result)
+    client.close()
+})
 
 let port = process.env.PORT || 3000
 app.listen(port)
