@@ -15,14 +15,10 @@ function App() {
   const [home, setHome] = useState(false);
   return (
     <div>
-        <p>
-            test
-        </p>
-    {/*<script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>*/}
 
-    {/*{home ? <Home setHome={setHome}></Home> : <Spot setHome={setHome}></Spot>}*/}
-      <SearchBar placeholder={"Enter a Study Spot..."} data={locationData}/>
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
 
+    {home ? <Home setHome={setHome}></Home> : <Spot setHome={setHome}></Spot>}
 
     </div>
  

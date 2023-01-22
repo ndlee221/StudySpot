@@ -1,7 +1,6 @@
 .searchInputs {
-    margin-top: 105px;
     display: flex;
-    margin-right: 10px;
+    margin: auto;
 }
 
 .search input {
@@ -12,6 +11,7 @@
     padding: 15px;
     height: 30px;
     width: 300px;
+    color: black;
 }
 
 .roundedLeft {
@@ -31,11 +31,16 @@
     border-radius: 0 15px 0 0;
 }
 
+.icon {
+    filter: brightness(0%);
+}
+
 input:focus {
     outline: none;
 }
 .searchIcon svg {
     font-size: 25px;
+    color: black;
 }
 
 .dataResult {
@@ -70,6 +75,10 @@ a {
 
 a:hover {
     background-color: lightgrey;
+}
+
+.locationText {
+    color: black;
 }
 
 #clearBtn {

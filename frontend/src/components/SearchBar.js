@@ -38,9 +38,9 @@ function SearchBar({ placeholder, data }) {
                 />
                 <div className={isEmpty ? "roundedRight searchIcon" : "searchIcon"}>
                     {filteredData.length === 0 ? (
-                        <SearchIcon />
+                        <SearchIcon className={"icon"} />
                     ) : (
-                        <CloseIcon id="clearBtn" onClick={clearInput} />
+                        <CloseIcon className="icon" id="clearBtn" onClick={clearInput} />
                     )}
                 </div>
             </div>
@@ -49,7 +49,7 @@ function SearchBar({ placeholder, data }) {
                     {filteredData.slice(0, 15).map((value, key) => {
                         return (
                             <a className="dataItem" href={"https://www.reddit.com/r/soccer/"} target="_blank">
-                                <p>{value.name} </p>
+                                <p className={"locationText"}>{value.name} </p>
                             </a>
                         );
                     })}

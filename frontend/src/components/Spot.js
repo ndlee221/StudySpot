@@ -1,5 +1,8 @@
 import { Card } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import locationData from "./Data.json";
+import SearchBar from "./SearchBar";
+import React from "react";
 
 
 function Spot({ setHome }) {
@@ -26,9 +29,8 @@ function Spot({ setHome }) {
                         StudySpots
                     </a>
                 </div>
-                <div className="navbar-container">
-                    <div className="bar mt-4">
-                    </div>
+                <div className="searchBarSpot">
+                    <SearchBar placeholder={"Enter a Study Spot..."} data={locationData}/>
                 </div>
             </div>
 
