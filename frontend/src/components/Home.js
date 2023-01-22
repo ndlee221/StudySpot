@@ -25,17 +25,18 @@ function Home({ setHome }) {
                     Enter a UBC Location to get started
                 </p>
 
+
                 <ul className="about">
                     <li className='about-items'>
-                        <p>
+                        <p>               
                             Write reviews about your UBC spaces
                         </p>
                     </li>
 
                     <li className='about-items'>
+                    
                         <p>
                             Search to find the best rated new study spots
-
                         </p>
                     </li>
 
