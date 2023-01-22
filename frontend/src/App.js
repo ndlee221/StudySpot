@@ -15,7 +15,7 @@ function App() {
   const [home, setHome] = useState(false);
   return (
     <div>
-      {/*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans"/>*/}
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans"/>
     <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
 
     {home ? <Home setHome={setHome}></Home> : <Spot setHome={setHome}></Spot>}
