@@ -137,7 +137,8 @@ body {
 
 .title:hover {
   color: white;
-
+  background: none;
+  opacity: .5;
   cursor: pointer;
 }
 
