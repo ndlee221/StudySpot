@@ -33,4 +33,15 @@ body {
  font-family: 'Plus Jakarta Sans', serif;
 }
 
+.homeBody{
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.inner{
+  position: absolute;
+}
+
 

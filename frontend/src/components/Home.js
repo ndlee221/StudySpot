@@ -15,7 +15,14 @@ function Home({ setHome }) {
                     <h1 className='titleStudy'>Study</h1>
                     <h1 className='titleSpot'>Spots</h1>
                 </div>
-
+            </div>
+            <div className={"homeBody"}>
+                <div className={"inner"}>
+                    Enter a UBC study spot
+                </div>
+                <div className={"inner"}>
+                    <SearchBar placeholder={"Location name"} data={locationData}/>
+                </div>
             </div>
 
         </div>
