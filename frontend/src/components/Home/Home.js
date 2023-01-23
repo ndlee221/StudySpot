@@ -2,8 +2,8 @@ import { Button, Form, Col, Row, ListGroup, Navbar, Card } from 'react-bootstrap
 import "./home.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react';
-import locationData from "./Data.json"
-import SearchBar from "./SearchBar"
+import locationData from "../../data/Data.json"
+import SearchBar from '../Search/SearchBar';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import CreateIcon from '@mui/icons-material/Create';
 import RoomIcon from '@mui/icons-material/Room';

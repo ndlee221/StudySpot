@@ -115,6 +115,26 @@ find and rate study spots at ubc
         "message": "was very busy."
         "rating": 3
     }
+    {
+        "date": "01/20/23",
+        "message": "quite busy.",
+        "rating": 2
+    },
+    {
+        "date": "01/20/23",
+        "message": "quite busy.",
+        "rating": 2
+    },
+    {
+        "date": "01/20/23",
+        "message": "quite busy.",
+        "rating": 2
+    },
+    {
+        "date": "01/20/23",
+        "message": "quite busy.",
+        "rating": 2
+    }
     ]
 
 
