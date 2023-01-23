@@ -3,6 +3,10 @@
     width: 50%;
 }
 
+body {
+    background-color: #1e1e1e;
+}
+
 
 .location {
     text-decoration: none;
@@ -43,16 +47,17 @@
 }
 
 .homeAndSearchContainer {
+    background: gray;
     display: flex;
     flex-direction: row;
-    position: relative;
-    padding-left: 10px;
 }
 
 .spot-container {
-    margin: 10px;
+    margin: 0px;
     display: inline-block;
     color: white;
+    width: 100%;
+    height: 100%;
 }
 
 .card-div {
@@ -62,11 +67,12 @@
 .card-items {
     display: inline;
     text-align: center;
+    color:black;
 }
 
 .name-container {
     text-align: center;
-    color: white;
+    color: black;
     position: relative;
     margin-top: 100px;
     font-size: 25px;
@@ -76,7 +82,7 @@
 .name {
     color: white;
     font-size: 70px;
-
+    margin-right: 10px;
 }
 
 .textBox {
@@ -88,6 +94,7 @@
     margin-right: auto;
     width: 100%;
     margin-left: 42px;
+    color: black;
 }
 
 .locationInfoContainer {
@@ -115,5 +122,9 @@
 
 .timestamp {
     font-size: 15px;
+}
+
+.cardss {
+    color:black;   
 }
 

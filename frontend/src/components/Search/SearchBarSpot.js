@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import "./SearchBar.css";
+import "./SearchBarSpot.css"
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
-function SearchBar({ placeholder, data, setInput, setHome }) {
+function SearchBarSpot({ placeholder, data, setInput, setHome }) {
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
     let isEmpty = wordEntered.length === 0;
@@ -14,7 +14,7 @@ function SearchBar({ placeholder, data, setInput, setHome }) {
         const newFilter = data.filter((value) => {
             return (value.name.toLowerCase().includes(searchWord.toLowerCase()));
         });
-
+        
 
         if (searchWord === "") {
             setFilteredData([]);
@@ -55,11 +55,9 @@ function SearchBar({ placeholder, data, setInput, setHome }) {
                 <div className="dataResult">
                     {filteredData.slice(0, 15).map((value, key) => {
                         return (
-                            <a className="dataItem" className="dataItem" onClick={() => {
-                                setData(value.name)
-                                setInput(value.name)
-                                setHome(false);
-                            }} target="_blank">
+                            <a className="dataItem" className="dataItem" onClick={() => { setData(value.name)
+                            setInput(value.name)
+                            setHome(false); }} target="_blank">
                                 <p className={"locationText"}  >{value.name} </p>
                             </a>
                         );
@@ -70,4 +68,4 @@ function SearchBar({ placeholder, data, setInput, setHome }) {
     );
 }
 
-export default SearchBar;
+export default SearchBarSpot;

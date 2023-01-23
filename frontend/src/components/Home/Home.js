@@ -8,16 +8,16 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import CreateIcon from '@mui/icons-material/Create';
 import RoomIcon from '@mui/icons-material/Room';
 
-function Home({ setHome }) {
+function Home({ setHome, setInput}) {
 
     return (
-        <div>
+        <div className="home-container">
             <div className={"homeBody"}>
                 <div className={"logo"}>
                     StudySpot
                 </div>
                 <div className={"searchBlock"}>
-                    <SearchBar placeholder={"Location name"} data={locationData}/>
+                    <SearchBar setHome={setHome} setInput ={setInput} placeholder={"Location name"} data={locationData}/>
                 </div>
             </div>
             <div className={"footer"}>

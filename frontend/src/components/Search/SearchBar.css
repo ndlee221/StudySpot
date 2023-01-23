@@ -1,6 +1,6 @@
 .searchInputs {
+    margin-top: 20px;
     display: flex;
-    margin: auto;
 }
 
 .search input {
@@ -9,26 +9,25 @@
     border-radius: 15px 0 0 0;
     font-size: 18px;
     padding: 15px;
-    height: 30px;
+    height: 60px;
     width: 300px;
     color: black;
 }
 
 .roundedLeft {
-    border-radius: 15px 0 0 15px!important;
+    border-radius: 15px 0 0 15px !important;
 }
 
 .roundedRight {
-    border-radius: 0 15px 15px 0!important;
+    border-radius: 0 15px 15px 0 !important;
 }
 
 .searchIcon {
-    height: 30px;
+    height: 60px;
     width: 50px;
     background-color: white;
-    display: grid;
-    place-items: center;
     border-radius: 0 15px 0 0;
+    place-items: center;
 }
 
 .icon {
@@ -38,9 +37,11 @@
 input:focus {
     outline: none;
 }
+
 .searchIcon svg {
-    font-size: 25px;
+    font-size: 50px;
     color: black;
+    padding-top: 10px;
 }
 
 .dataResult {
@@ -69,6 +70,7 @@ input:focus {
 .dataItem p {
     margin-left: 10px;
 }
+
 a {
     text-decoration: none;
 }

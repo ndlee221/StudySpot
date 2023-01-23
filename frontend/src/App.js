@@ -12,10 +12,13 @@ import React, { useEffect, useState } from 'react';
 
 
 function App() {
-  const [home, setHome] = useState(false);
+  const [home, setHome] = useState(true);
+  const [input, setInput] = useState("");
   return (
     <div>
-      {home ? <Home setHome={setHome}></Home> : <Spot setHome={setHome}></Spot>}
+      <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Raleway"/>
+      {home ? <Home setHome={setHome} setInput={setInput}></Home> : <Spot setHome={setHome} input={input} setInput={setInput}></Spot>}
     </div>
 
 

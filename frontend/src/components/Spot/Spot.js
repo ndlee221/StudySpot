@@ -1,17 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SearchBar from "../Search/SearchBar";
+import SearchBar from '../Search/SearchBar'
 import React from "react";
 import { useEffect, useState } from "react";
 import ReviewCard from "../Card/Cards"
 import locationData from "../../data/Data.json"
 import Modal from "../Modal/Modal";
 import "./Spot.css"
-import Dropdown from "../Dropdown/Dropdown";
+import DropButton from "../Dropdown/Dropdown";
+import { Icon } from '@iconify/react';
 
 
 const URL = "studyspot.onrender.com";
 
-function Spot({ setHome }) {
+function Spot({ setHome , input, setInput }) {
     const [building, setBuilding] = useState(false);
     const [buildingData, setData] = useState(null);
     const [average, setAverage] = useState(0);
@@ -24,6 +25,7 @@ function Spot({ setHome }) {
             getAvg();
             setRun(true);
         }
+        console.log(input);
 
     }, []);
 
@@ -40,14 +42,14 @@ function Spot({ setHome }) {
 
 
     async function getBuildings() {
-        const data = await fetch("https://studyspot.onrender.com/building/DMP", { mode: 'cors' }).then((response) => {
+        const data = await fetch("https://studyspot.onrender.com/building/"+ input, { mode: 'cors' }).then((response) => {
             return response.json();
         })
         setData(data);
     }
 
     async function getAvg() {
-        const data = await fetch("https://studyspot.onrender.com/avg/DMP", { mode: 'cors' }).then((response) => {
+        const data = await fetch("https://studyspot.onrender.com/avg/" + input, { mode: 'cors' }).then((response) => {
             return response.json();
         })
         setAverage(data);
@@ -102,6 +104,7 @@ function Spot({ setHome }) {
             <div>
                 <p className="name">
                     {buildingData ? getName(buildingData.name) : null}
+                    <Icon className="ml-5" icon="material-symbols:star-rounded" color="yellow" width="50" height="50" inline={true} />
                 </p>
             </div>
 
@@ -115,7 +118,7 @@ function Spot({ setHome }) {
                 <div className="capacity">
                     <p >Capacity:  {buildingData ? getCapacity(buildingData.busy) : null}</p>
                     <p className="timestamp">last updated at {buildingData ? buildingData.last_updated_time : null}</p>
-                    {/* <DropButton/> */}
+                    <DropButton/>
                 </div>
             </div>
 

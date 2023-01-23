@@ -5,11 +5,11 @@ function ReviewCard({review}) {
   return (
     <Card className="reviewCards mx-5" style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title>
+        <Card.Title className='text-dark'>
           Rating: {review.rating} 
           </Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Posted: {review.date}</Card.Subtitle>
-        <Card.Text>
+        <Card.Subtitle className="text-dark">Posted: {review.date}</Card.Subtitle>
+        <Card.Text className='text-dark'>
           {review.message}
         </Card.Text>
       </Card.Body>
