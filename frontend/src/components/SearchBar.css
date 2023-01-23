@@ -9,7 +9,7 @@
     border-radius: 15px 0 0 0;
     font-size: 18px;
     padding: 15px;
-    height: 30px;
+    height: 60px;
     width: 300px;
     color: black;
 }
@@ -23,7 +23,7 @@
 }
 
 .searchIcon {
-    height: 30px;
+    height: 60px;
     width: 50px;
     background-color: white;
     border-radius: 0 15px 0 0;
@@ -39,8 +39,9 @@ input:focus {
 }
 
 .searchIcon svg {
-    font-size: 25px;
+    font-size: 50px;
     color: black;
+    padding-top: 10px;
 }
 
 .dataResult {

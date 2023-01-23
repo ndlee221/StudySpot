@@ -1,0 +1,37 @@
+* {
+    color: white;
+}
+
+html, body {
+    height:100%;
+    width: 100%;
+}
+
+body {
+    background-color: #1e1e1e;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: brightness(30%);
+    background-image: url("../images/harryPotterRoom.jpg");
+    background-size: cover;
+}
+
+.homeBody{
+
+    display: flex;
+    justify-content: center;
+    height: 200px;
+
+}
+
+.searchBlock {
+    position: absolute;
+    padding-top: 320px;
+
+}
+
+.logo {
+    position: absolute;
+    padding-top: 200px;
+    font-size: 500%;
+}

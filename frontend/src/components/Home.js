@@ -1,26 +1,19 @@
 import { Button, Form, Col, Row, ListGroup, Navbar, Card } from 'react-bootstrap';
-import '../App.css'
+import "./home.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react';
 import locationData from "./Data.json"
 import SearchBar from "./SearchBar";
-import background from "../images/UBC-Vancouver-campus-2.jpg"
 
 function Home({ setHome }) {
 
     return (
         <div>
-            <div className={"header"}>
-                <div className='centered-images'>
-                    <h1 className='titleStudy'>Study</h1>
-                    <h1 className='titleSpot'>Spots</h1>
-                </div>
-            </div>
             <div className={"homeBody"}>
-                <div className={"inner"}>
-                    Enter a UBC study spot
+                <div className={"logo"}>
+                    StudySpot
                 </div>
-                <div className={"inner"}>
+                <div className={"searchBlock"}>
                     <SearchBar placeholder={"Location name"} data={locationData}/>
                 </div>
             </div>
