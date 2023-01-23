@@ -3,6 +3,10 @@ const {MongoClient} = require('mongodb')
 const express = require("express")
 const app = express()
 
+var cors = require('cors')
+app.use(express.urlencoded({extended: true}))
+app.use(cors())
+
 
 async function main(client) {
     try {
@@ -17,9 +21,13 @@ app.get("/building/:name", async function buildingRouter(req, res) {
     res.set('Access-Control-Allow-Origin', '*');
 
     const client = new MongoClient("mongodb+srv://studyspot:nwhacks15@studyspot.lyx6wd3.mongodb.net/?retryWrites=true&w=majority");
+    console.log("before main call");
     main(client)
+    console.log("after main call");
     const db = client.db("studyspot");
     const collection = db.collection("building");
+    console.log("0");
+
 
     const params = req.params.name
     console.log(params)
@@ -72,6 +80,7 @@ app.get("/building/:name/dte/:date/msg/:message/rate/:rating", async function bu
         }
     }
     };
+    console.log(updateDocument);    
 
     const result = await collection.updateOne(filter, updateDocument);
 
