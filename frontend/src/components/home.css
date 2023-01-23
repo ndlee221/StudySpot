@@ -48,4 +48,13 @@ body {
 .item {
     display: inline;
     float: left;
+    margin-left: 115px;
+    margin-right: 50px;
+    margin-top: 50px;
+    word-wrap: break-word;
+}
+
+.itemIcon {
+    margin-right: 10px;
+    font-size: larger;
 }

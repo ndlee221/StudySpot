@@ -23,16 +23,16 @@ function Home({ setHome }) {
             <div className={"footer"}>
                 <ul className={"list"}>
                     <li className={"item"}>
+                        <AutoStoriesIcon className={"itemIcon"}></AutoStoriesIcon>
                         Read other peoples experiences
-                        <AutoStoriesIcon></AutoStoriesIcon>
                     </li>
                     <li className={"item"}>
+                        <RoomIcon className={"itemIcon"}></RoomIcon>
                         Search to find the best rated new study spots
-                        <RoomIcon></RoomIcon>
                     </li>
                     <li className={"item"}>
+                        <CreateIcon className={"itemIcon"}></CreateIcon>
                         Write reviews about your UBC spaces
-                        <CreateIcon></CreateIcon>
                     </li>
                 </ul>
             </div>
