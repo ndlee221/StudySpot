@@ -9,8 +9,11 @@ body {
 
 
 .location {
+    padding-left: 50px;
     text-decoration: none;
     color: white;
+    font-size: 25px;
+    width: 100%;
 }
 
 .location:hover {
@@ -50,6 +53,7 @@ body {
     background: gray;
     display: flex;
     flex-direction: row;
+    padding-bottom: 20px;
 }
 
 .spot-container {
@@ -80,9 +84,12 @@ body {
 }
 
 .name {
+    padding-left: 50px;
     color: white;
-    font-size: 70px;
+    font-size: 50px;
     margin-right: 10px;
+    margin-top: 20px;
+    display: inline-block;
 }
 
 .textBox {
@@ -102,20 +109,21 @@ body {
     flex-direction: row;
 }
 
-.location {
-    font-size: 35px;
-    width: 100%;
+.rating {
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+    font-size: 45px;
+    margin-bottom: 20px;
 }
 
-.rating {
-    font-size: 35px;
-    float:left;
-    width: 100%;
+.score {
+    padding-bottom: 10px;
 }
 
 .capacity {
     padding-left: 50%;
-    font-size: 35px;
+    font-size: 25px;
     float: right;
     width:100%;
 }
@@ -128,3 +136,14 @@ body {
     color:black;   
 }
 
+.line {
+    height: 2px;
+    width:100%;
+    background-color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.modal {
+    padding-left: 100px;
+}

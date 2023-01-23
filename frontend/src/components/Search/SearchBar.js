@@ -57,7 +57,7 @@ function SearchBar({ placeholder, data, setInput, setHome }) {
                         return (
                             <a className="dataItem" className="dataItem" onClick={() => {
                                 setData(value.name)
-                                setInput(value.name)
+                                setInput(value.abbreviation)
                                 setHome(false);
                             }} target="_blank">
                                 <p className={"locationText"}  >{value.name} </p>
