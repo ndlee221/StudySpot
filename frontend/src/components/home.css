@@ -14,6 +14,7 @@ body {
     backdrop-filter: brightness(30%);
     background-image: url("../images/harryPotterRoom.jpg");
     background-size: cover;
+    overflow: hidden;
 }
 
 .homeBody{
@@ -34,4 +35,17 @@ body {
     position: absolute;
     padding-top: 200px;
     font-size: 500%;
+}
+
+.footer {
+    margin-top: 500px;
+    min-height: 300px;
+    overflow: hidden;
+    background-color: #131313;
+
+}
+
+.item {
+    display: inline;
+    float: left;
 }
