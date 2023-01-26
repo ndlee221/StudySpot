@@ -1,2 +1,3 @@
 # studyspot
-find and rate study spots at ubc
+find and rate study spots at ubc ;) 
+ 
